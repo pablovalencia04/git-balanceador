@@ -1,0 +1,53 @@
+Para instalar Docker en Debian 10, puedes seguir estos pasos:
+
+1. **Actualizar el índice de paquetes**: Antes de comenzar, asegúrate de que tu sistema tenga la información de los paquetes más recientes. Puedes hacerlo con el siguiente comando:
+
+    ```
+    sudo apt update
+    ```
+
+2. **Instalar dependencias necesarias**: Docker requiere algunas dependencias que pueden no estar instaladas por defecto. Puedes instalarlas con el siguiente comando:
+
+    ```
+    sudo apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+    ```
+
+3. **Agregar la clave GPG oficial de Docker**: Esto asegura que los paquetes descargados sean auténticos. Ejecuta el siguiente comando para agregar la clave GPG:
+
+    ```
+    curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+    ```
+
+4. **Agregar el repositorio de Docker a las fuentes de APT**: Añade el repositorio de Docker a las fuentes de paquetes de APT:
+
+    ```
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+    ```
+
+5. **Actualizar el índice de paquetes nuevamente**: Para asegurarte de que APT conozca los paquetes disponibles en el nuevo repositorio, ejecuta:
+
+    ```
+    sudo apt update
+    ```
+
+6. **Instalar Docker Engine**: Ahora que has configurado el repositorio de Docker, puedes instalar Docker Engine con el siguiente comando:
+
+    ```
+    sudo apt install docker-ce
+    ```
+
+7. **Verificar la instalación de Docker**: Después de la instalación, puedes verificar que Docker se haya instalado correctamente ejecutando el siguiente comando para obtener la versión instalada:
+
+    ```
+    docker --version
+    ```
+
+8. **Agregar tu usuario al grupo docker (opcional)**: Para evitar tener que usar `sudo` cada vez que ejecutas comandos de Docker, puedes agregar tu usuario al grupo `docker` con el siguiente comando:
+
+    ```
+    sudo usermod -aG docker $USER
+    ```
+
+    Después de ejecutar este comando, cierra sesión y vuelve a iniciar sesión para que los cambios surtan efecto.
+
+Una vez completados estos pasos, Docker debería estar instalado y listo para su uso en tu sistema Debian 10. Puedes comenzar a trabajar con contenedores Docker siguiendo la documentación oficial o cualquier tutorial que desees seguir.
