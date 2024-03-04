@@ -1,0 +1,8 @@
+# Utiliza la imagen oficial de Apache
+FROM httpd:latest
+
+# Copia el archivo index.html en el directorio raíz del servidor web
+COPY ./index.html /usr/local/apache2/htdocs/
+
+# Expone el puerto 80 para permitir conexiones HTTP
+EXPOSE 80
